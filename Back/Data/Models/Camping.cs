@@ -9,6 +9,7 @@ namespace Data.Models
    {
       [Key]
       public Guid Id { get; set; }
+      public string Owner { get; set; }
       public string Name { get; set; }
       public string Description { get; set; }
       public string ParkingSize { get; set; }
@@ -21,6 +22,8 @@ namespace Data.Models
 
    public class Facilities
    {
+      [Key]
+      public Guid Id { get; set; }
       public bool sanitary = false;
       public bool food = false;
       public bool shops = false;
