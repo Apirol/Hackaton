@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+
 using Microsoft.EntityFrameworkCore.Design;
 using Service.CampingService;
 
@@ -33,8 +34,10 @@ namespace Web
             options.EnableDetailedErrors();
             options.UseNpgsql(Configuration.GetConnectionString("project.dev"));
          });
+
             services.AddScoped<ICampingService, CampingService>();
       }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
