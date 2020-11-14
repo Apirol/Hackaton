@@ -13,10 +13,10 @@ namespace Web.Controllers
     [Route("[controller]")]
     public class  CampingController: ControllerBase
     {
-        private readonly CampingService campingService;
+        private readonly ICampingService campingService;
         private readonly ILogger<CampingController> _logger;
 
-        public CampingController(ILogger<CampingController> logger, CampingService service)
+        public CampingController(ILogger<CampingController> logger, ICampingService service)
         {
             this._logger = logger;
             this.campingService = service;
@@ -26,7 +26,7 @@ namespace Web.Controllers
         public ActionResult GetAllCampings()
         {
             var campings = campingService.GetAllCampings();
-            return Ok(campings);
+            return Ok("Campings");
         }
 
         [HttpGet("/api/Owner/Campings/getCampingById")]

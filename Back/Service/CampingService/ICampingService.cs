@@ -8,7 +8,7 @@ namespace Service.CampingService
     public interface ICampingService
     {
         void AddCamping(Camping camping);
-        void DeleteCamping(Guid id);
+        void DeleteCamping(Camping camping);
 
         Camping GetOneCamping(Guid id);
         List<Camping> SearchCampings();
