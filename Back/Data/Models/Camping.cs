@@ -12,18 +12,27 @@ namespace Data.Models
       public string Owner { get; set; }
       public string Name { get; set; }
       public string Description { get; set; }
-      public string ParkingSize { get; set; }
+
       public string ParkingType { get; set; }
+      public int ParkingSize { get; set; }
+
       public float Rating { get; set; }
       public float PricePerDay { get; set; }
-      public Location Loc { get; set; }
+
       public Uri URL { get; set; }
+      public DateTime CreateOn { get; set; }
+
+      public Facilities facilities { get; set; }
+
+      public Location location { get; set; }
+      
    }
 
    public class Facilities
    {
       [Key]
       public Guid Id { get; set; }
+
       public bool sanitary = false;
       public bool food = false;
       public bool shops = false;
@@ -32,6 +41,7 @@ namespace Data.Models
    public class Location
    {
       [Key]
+      public Guid Id { get; set; }
       public string Region { get; set; }
       public string City { get; set; }
       public string Street { get; set; }

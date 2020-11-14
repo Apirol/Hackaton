@@ -1,9 +1,9 @@
 import axios from "axios";
-import ICamping from "src/Types/ICamping";
+import Camping from "@/Types/Camping";
 
 export default class ResultService {
   API_URL = process.env.VUE_APP_API_URL;
-  public async getAllCampings(): Promise<ICamping[]> {
+  public async getAllCampings(): Promise<Camping[]> {
     const result = await axios.get(
       `${this.API_URL}/Owner/Campings/getAllCampings`
     );
@@ -11,13 +11,29 @@ export default class ResultService {
     return result.data;
   }
 
-  // public async addCamping(result: IResultRequest)
-  // {
-  //     let newResult: any = await axios.post(`${this.API_URL}/addResult/`, result);
-  //     if (newResult.data != null)
-  //         console.log(newResult.data);
-  //     else
-  //         console.log("error");
-  //     return newResult.data;
-  // }
+  public async addCamping(camping: Camping) {
+    const newCamping: any = await axios.post(
+      `${this.API_URL}/Owner/Campings/addCamping`,
+      camping
+    );
+    if (newCamping.data != null) console.log(newCamping.data);
+    else console.log("error");
+    return newCamping.data;
+  }
+
+  public async getOwnersCamping(): Promise<Camping[]> {
+    const campings: any = await axios.get(
+      `${this.API_URL}/Owner/Campings/addCamping`
+    );
+    console.log(campings);
+    return campings.data;
+  }
+
+  public async getSearchCampings(): Promise<Camping[]> {
+    const campings: any = await axios.get(
+      `${this.API_URL}/Owner/Campings/searchCampings`
+    );
+    console.log(campings);
+    return campings.data;
+  }
 }

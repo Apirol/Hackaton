@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Data.Models;
 using Service.CampingService;
+using Web.RequestModels;
 
 namespace Web.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class  CampingController: ControllerBase
+    public class CampingController : ControllerBase
     {
         private readonly ICampingService campingService;
         private readonly ILogger<CampingController> _logger;
@@ -50,6 +48,30 @@ namespace Web.Controllers
             }
 
             return Ok("Camping doesn't exist");
+        }
+
+        [HttpPost("/api/Campings/AddNewCamping")]
+        public ActionResult AddNewCamping([FromBody] CampingRequestModel newRequest)
+        {
+            var time = DateTime.Now;
+            var camping = new Camping
+            {
+                Owner = newRequest.Owner,
+                Name = newRequest.Name,
+                Description = newRequest.Description,
+                ParkingType = newRequest.ParkingType,
+                ParkingSize = newRequest.ParkingSize,
+                Rating = newRequest.Rating,
+                PricePerDay = newRequest.PricePerDay,
+                URL = newRequest.URL,
+                Id = newRequest.Id,
+                CreateOn = time,
+                facilities = newRequest.facilities,
+                location = newRequest.location
+            };
+
+            campingService.AddCamping(camping);
+            return Ok("Camping was created");
         }
     }
 }
