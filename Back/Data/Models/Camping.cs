@@ -23,7 +23,6 @@ namespace Data.Models
       public DateTime CreateOn { get; set; }
 
       public Facilities facilities { get; set; }
-
       public Location location { get; set; }
       
    }

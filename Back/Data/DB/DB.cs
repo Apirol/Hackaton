@@ -18,5 +18,8 @@ namespace Data.DB
       public virtual DbSet<Data.Models.Camping> Camping { get; set; }
       public virtual DbSet<Data.Models.Client> Client { get; set; }
 
+        public virtual DbSet<Data.Models.Location> Locations { get; set; }
+        public virtual DbSet<Data.Models.Facilities> Facilities { get; set; }
+
     }
 }

@@ -17,9 +17,8 @@ namespace Web.RequestModels
 
         public Uri URL { get; set; }
         public Guid Id { get; set; }
-        public DateTime CreateOn { get; set; }
 
-        public Facilities facilities { get; set; };
+        public Facilities facilities { get; set; }
 
         public Location location { get; set; }
     }

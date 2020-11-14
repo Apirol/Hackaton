@@ -33,7 +33,9 @@ namespace Service.CampingService
 
         public List<Camping> GetAllCampings()
         {
-            return db.Camping.ToList();
+            var campings = db.Camping.ToList();
+            campings.ForEach(x => x.location = GetLocation(x.Id));
+            return campings;
         }
 
         public Camping GetOneCamping(Guid id)
@@ -49,6 +51,11 @@ namespace Service.CampingService
         public List<Camping> GetCampingsByOwner(string owner)
         {
             return db.Camping.Where(x => x.Owner == owner).ToList();
+        }
+
+        private Location GetLocation(Guid id)
+        {
+            return db.Locations.ToList().Find(x => x.Id == id);
         }
 
   
