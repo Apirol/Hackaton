@@ -26,7 +26,7 @@ namespace Web.Controllers
         public ActionResult GetAllCampings()
         {
             var campings = campingService.GetAllCampings();
-            return Ok("Campings");
+            return Ok(campings);
         }
 
         [HttpGet("/api/Owner/Campings/getCampingById")]

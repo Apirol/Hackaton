@@ -11,7 +11,11 @@ namespace Service.CampingService
     {
         private readonly DB db;
 
-        CampingService(DB db)
+      public CampingService()
+      {
+
+      }
+        public CampingService(DB db)
         {
             this.db = db;
         }
