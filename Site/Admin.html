@@ -48,143 +48,51 @@
 
 <!-- Main info Container -->
 <div class="w3-row-padding w3-padding-200">
-  <h2>Личный кабинет</h2>
-  <div style="display: flex; justify-content: center;">
-    <div class="w3-half">
-      <img src="Apirol.jpg" alt="Boss" style="display: block; margin-left: auto;margin-right: auto; width: 50%;" class="w3-circle w3-hover-opacity">
-      <h3 style="text-align: center;">Анатолий Редут</h3>
-    </div>
-  <div class="w3-half">
-    <table style="width:50%; height: 80%; font-size: 20px;">
-      <tr>
-        <td>Имя:</td>
-        <td>Анатолий</td>
-      </tr>
-      <tr>
-        <td>Фамилия:</td>
-        <td>Редут</td>
-      </tr>
-      <tr>
-        <td>Телефон:</td>
-        <td>+7 996 378 5720</td>
-      </tr>
-      <tr>
-        <td>Название компании:</td>
-        <td>Команда №-1</td>
-      </tr>
-    </table>
-  </div>
+  <h2 style="text-align: center;">Панель управления</h2>
 </div>
 </div>
 
 
-  <div class="w3-row">
-    <div class="w3-half">
-      <button  onclick="showAndHide1()" style="
+  <div class="w3-row"  style="text-align: center;">
+      <h2 style="
       width: 95%;
       background-color: rgb(233, 125, 1);
       color: white;
       padding: 14px 20px;
-      margin: 8px 0;
       border: none;
-      border-radius: 4px;
-      cursor: pointer;">Мои кемпинги</button>
-    </div>
+      margin-left: 40px;
+      border-radius: 4px;">Список клиентов</h2>
+     <div style="display: flex; justify-content: center;">
+      <div class="w3-half">
+        <img src="Apirol.jpg" alt="Boss" style="display: block; margin-left: auto;margin-right: auto; width: 50%;" class="w3-circle w3-hover-opacity">
+        <button class="our-style-button" style="margin-top: 10px;">Управление</button>
+      </div>
     <div class="w3-half">
-      <button onclick="showAndHide2()" style="
-      width: 95%;
-      background-color: rgb(233, 125, 1);
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;">Добавить кемпинг</button>
+      <table style="width:50%; height: 80%; font-size: 20px;">
+        <tr>
+          <td>Имя:</td>
+          <td>Анатолий</td>
+        </tr>
+        <tr>
+          <td>Фамилия:</td>
+          <td>Редут</td>
+        </tr>
+        <tr>
+          <td>Телефон:</td>
+          <td>+7 996 378 5720</td>
+        </tr>
+        <tr>
+          <td>Название компании:</td>
+          <td>Команда №-1</td>
+        </tr>
+      </table>
     </div>
   </div>
-    <div id="myDIV1">
-      <div class="w3-card w3-white">
-        <div class="w3-container">
-          <h3>Здесь будут ваши кемпинги</h3>
-        </div>
-      </div>
-    </div>
-    <div id="myDIV2" style="display: none;">
-      <div class="w3-card w3-white">
-        <div class="w3-container">
-          <h3>Заполните информацию о кемпинге:</h3>
-          <div class="w3-our-input w3-our-input-submit w3-our-input-div select">
-            <label for="fname">Название кемпинга</label>
-            <input type="text" id="Name" name="Name" style="width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid rgb(233, 125, 1);
-            border-radius: 4px;
-            box-sizing: border-box;">
-              
-            <label for="lname">Описание кемпинга</label>
-            <input type="text" id="Description" name="Description" style="width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid rgb(233, 125, 1);
-            border-radius: 4px;
-            box-sizing: border-box;">
-    
-            <label for="lname">Количество парковочных мест</label>
-            <input type="text" id="ParkingSize" name="ParkingSize" style="width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid rgb(233, 125, 1);
-            border-radius: 4px;
-            box-sizing: border-box;">
-            
-            <label for="lname">Тип парковки</label>
-            <input type="text" id="ParkingType" name="ParkingType" style="width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid rgb(233, 125, 1);
-            border-radius: 4px;
-            box-sizing: border-box;">
-            
-            <label for="lname">Оценка</label>
-            <input type="text" id="Rating" name="Rating" style="width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid rgb(233, 125, 1);
-            border-radius: 4px;
-            box-sizing: border-box;">
-            
-            <label for="lname">Стоимость дня проживания</label>
-            <input type="text" id="PricePerDay" name="PricePerDay" style="width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid rgb(233, 125, 1);
-            border-radius: 4px;
-            box-sizing: border-box;">
-            
-            <input type="submit" value="Сохранить" style="
-            width: 100%;
-            background-color: rgb(233, 125, 1);
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;">
-          </div>
-          </div>
-        </div>
-        </div>
-      </div>
+  </div>
+
 
 <!-- Contact Container -->
-<div class="w3-container w3-padding-200 w3-theme-l5" id="contact">
+<div class="w3-container w3-padding-200 w3-theme-l5" id="contact" >
   <div class="w3-row">
     <div class="w3-padding-16"><span class="w3-xlarge w3-border-orange w3-bottombar">Свяжитесь с нами</span></div>
       <p>Если возникнут вопросы или предложения</p>
@@ -222,19 +130,13 @@ function openNav() {
     x.className = x.className.replace(" w3-show", "");
   }
 }
-function showAndHide1() {
+function Show() {
   var x = document.getElementById("myDIV1");
-  var y = document.getElementById("myDIV2");
-
-  y.style.display = "none";
   x.style.display = "block";
 }
-function showAndHide2() {
+function Hide() {
   var x = document.getElementById("myDIV1");
-  var y = document.getElementById("myDIV2");
-
   x.style.display = "none";
-  y.style.display = "block";
 }
 </script>
 
