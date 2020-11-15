@@ -94,17 +94,10 @@
           </div>
         </div><br>
         <label>Минимальный рейтинг:</label>
-        <input type="text" id="minRating" name="minRating" style="width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid rgb(233, 125, 1);
-        border-radius: 4px;
-        box-sizing: border-box;">
 
         <div class="slidecontainer">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-          <p>Value: <span id="demo"></span></p>
+          <input type="range" min="0.0" max="10.0" value="5.0" step="0.1" class="slider" id="myRange">
+          <p>Значение: <span id="demo"></span></p>
         </div>
 
         <label>Ориентировочная цена за сутки:</label>
@@ -219,6 +212,13 @@ function openNav() {
   } else { 
     x.className = x.className.replace(" w3-show", "");
   }
+}
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
 }
 </script>
 
