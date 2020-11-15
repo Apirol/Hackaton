@@ -10,5 +10,7 @@ namespace Service.ClientService
         void DeleteClient(Client client);
 
         Client GetClient(Guid id);
+
+        List<Client> GetAllClients();
     }
 }

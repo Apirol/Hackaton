@@ -73,5 +73,11 @@ namespace Web.Controllers
             campingService.AddCamping(camping);
             return Ok("Camping was created");
         }
+
+        [HttpPost("/api/Campings/SearchCampings")]
+        public ActionResult SearchCampings()
+        {
+
+        }
     }
 }
