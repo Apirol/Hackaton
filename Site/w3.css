@@ -323,20 +323,23 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
   cursor: pointer;
 }
 
-.text_header
-{
-   position: absolute;
-    top: 250px;
-    left: 0;
-    width: 100%;
+.our-style {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(233, 125, 1);
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-.text_span
-{
-  color			: white;
-	font			: bold 24px/45px Helvetica, Sans-Serif;
-	letter-spacing		: -1px;
-	background		: rgb(0, 0, 0); 
-	background		: rgba(0, 0, 0, 0.7);
-  padding			: 100px;
+.our-style-button {
+  width: 100%;
+  background-color: rgb(233, 125, 1);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
