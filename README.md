@@ -1,4 +1,4 @@
-# hack.front
+# Prototype of platform for camping administration
 
 ## Project setup
 ```
