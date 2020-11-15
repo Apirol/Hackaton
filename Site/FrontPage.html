@@ -29,10 +29,6 @@
 <!-- Image Header -->
 <div class="w3-display-container w3-animate-opacity">
   <img src="Face.jpg" alt="boat" style="width:100%;">
-
-  <div class="w3-container w3-display-middle" style="height:100px">  
-    <label="SSSSS" class="w3-button w3-xlarge w3-theme w3-hover-orange" title="Go To W3.CSS">Кемперы</button>
-  </div>
 </div>
 
 <!-- Modal -->
@@ -65,25 +61,106 @@
 <div class="w3-threequarter">
   <div class="w3-card w3-white">
     <div class="w3-container">
-      <h3>Настройте</h3>
-      <p>Ф</p>
-      <p>и</p>
-      <p>л</p>
-      <p>ь</p>
-      <p>т</p>
-      <p>р</p>
-      <p>ы</p>
+      <h3>Настройте фильтры:</h3>
+      <div class="w3-our-input w3-our-input-submit w3-our-input-div select">
+        <label >Удобства:</label><br>
+        <div style="width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid rgb(233, 125, 1);
+        border-radius: 4px;
+        box-sizing: border-box;">
+          <div>
+            <input type="checkbox" id="f_sanitary" name="facility" value="f_sanitary">
+            <label for="f_sanitary" style="width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;">Уборные</label>
+          </div>
+          <div>
+            <input type="checkbox" id="f_food" name="facility" value="f_food">
+            <label for="f_food"style="width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;">Еда</label>
+          </div>
+          <div>
+            <input type="checkbox" id="f_shops" name="facility" value="f_shops">
+            <label for="f_shops"style="width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;">Магазины</label>
+          </div>
+        </div><br>
+        <label>Минимальный рейтинг:</label>
+        <input type="text" id="minRating" name="minRating" style="width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid rgb(233, 125, 1);
+        border-radius: 4px;
+        box-sizing: border-box;">
+
+        <div class="slidecontainer">
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+          <p>Value: <span id="demo"></span></p>
+        </div>
+
+        <label>Ориентировочная цена за сутки:</label>
+        <input type="text" id="cost" name="cost" style="width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid rgb(233, 125, 1);
+        border-radius: 4px;
+        box-sizing: border-box;">
+        
+        <label >Парковка:</label><br>
+        <div style="width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid rgb(233, 125, 1);
+        border-radius: 4px;
+        box-sizing: border-box;">
+          <div>
+            <input type="radio" id="open" name="parking" value="open">
+            <label for="open" style="width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;">Крытая</label>
+          </div>
+          <div>
+            <input type="radio" id="covered" name="parking" value="covered">
+            <label for="covered"style="width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;">Открытая</label>
+          </div>
+        </div><br>
+
+        <input type="submit" value="Найти подходящие кемпинги" style="
+        width: 100%;
+        background-color: rgb(233, 125, 1);
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;">
+      </div>
+      </div>
     </div>
     </div>
   </div>
-
 </div>
 
 <!-- Team Container -->
 <div class="w3-row" id="team"><br></div>
 <div class="w3-container w3-padding-200 w3-center">
 <h2>Команда № -1</h2>
-<p>Вот они, слева направо:</p>
+<p>Разработчики проекта:</p>
 
 <div class="w3-row">
 
@@ -94,13 +171,13 @@
   <div class="w3-quarter">
     <img src="Apirol.jpg" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
     <h3>Редут Анатолий</h3>
-    <p>Босс</p>
+    <p>Программист/аналитик</p>
   </div>
 
   <div class="w3-quarter">
     <img src="Art.jpg" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
     <h3>Ефремов Артур</h3>
-    <p>На подхвате</p>
+    <p>Программист/аналитик</p>
   </div>
 </div>
 
@@ -110,8 +187,9 @@
     <div class="w3-padding-16"><span class="w3-xlarge w3-border-orange w3-bottombar">Свяжитесь с нами</span></div>
       <p>Если возникнут вопросы или предложения</p>
       <p><i class="fa fa-map-marker w3-text-orange w3-xlarge"></i> Новосибирск, Россия</p>
-      <p><i class="fa fa-phone w3-text-orange w3-xlarge"></i>  +7 толя вставь номер</p>
-      <p><i class="fa fa-envelope-o w3-text-orange w3-xlarge"></i>  толя вставь почту</p>
+      <p><i class="fa fa-phone w3-text-orange w3-xlarge"></i>  +7 996 378 5720</p>
+      <p><i class="fa fa-envelope-o w3-text-orange w3-xlarge"></i>  redut.tolya@gmail.com</p>
+    </div>
   </div>
 </div>
 

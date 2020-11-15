@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Кемперы</title>
+<title>Кабинет</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="w3.css">
@@ -26,10 +26,6 @@
 <!-- Image Header -->
 <div class="w3-display-container w3-animate-opacity">
   <img src="CabinetFace.jpg" alt="boat" style="width:100%;">
-
-  <div class="w3-container w3-display-middle">  
-    <label="SSSSS" class="w3-button w3-xlarge w3-theme w3-hover-orange" title="Go To W3.CSS">Кемперы</button>
-  </div>
 </div>
 
 <!-- Modal -->
@@ -50,89 +46,142 @@
   </div>
 </div>
 
-
-<!-- Work Row -->
-<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
-
-<div class="w3-quarter">
-<h2>Добавление кемпингов</h2>
-<p>Заполните форму и добавьте кемпинг в свою базу данных</p>
-</div>
-
-<div class="w3-threequarter">
-  <div class="w3-card w3-white">
-    <div class="w3-container">
-      <h3>Заполните информацию о кемпинге:</h3>
-      <div class="w3-our-input w3-our-input-submit w3-our-input-div select">
-        <label for="fname">Название кемпинга</label>
-        <input type="text" id="Name" name="Name" style="width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid rgb(233, 125, 1);
-        border-radius: 4px;
-        box-sizing: border-box;">
-          
-        <label for="lname">Описание кемпинга</label>
-        <input type="text" id="Description" name="Description" style="width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid rgb(233, 125, 1);
-        border-radius: 4px;
-        box-sizing: border-box;">
-
-        <label for="lname">Количество парковочных мест</label>
-        <input type="text" id="ParkingSize" name="ParkingSize" style="width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid rgb(233, 125, 1);
-        border-radius: 4px;
-        box-sizing: border-box;">
-        
-        <label for="lname">Тип парковки</label>
-        <input type="text" id="ParkingType" name="ParkingType" style="width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid rgb(233, 125, 1);
-        border-radius: 4px;
-        box-sizing: border-box;">
-        
-        <label for="lname">Оценка</label>
-        <input type="text" id="Rating" name="Rating" style="width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid rgb(233, 125, 1);
-        border-radius: 4px;
-        box-sizing: border-box;">
-        
-        <label for="lname">Стоимость дня проживания</label>
-        <input type="text" id="PricePerDay" name="PricePerDay" style="width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid rgb(233, 125, 1);
-        border-radius: 4px;
-        box-sizing: border-box;">
-        
-        <input type="submit" value="Сохранить" style="
-        width: 100%;
-        background-color: rgb(233, 125, 1);
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;">
-      </div>
-      </div>
+<!-- Main info Container -->
+<div class="w3-row-padding w3-padding-200">
+  <h2>Личный кабинет</h2>
+  <div style="display: flex; justify-content: center;">
+    <div class="w3-half">
+      <img src="Apirol.jpg" alt="Boss" style="display: block; margin-left: auto;margin-right: auto; width: 50%;" class="w3-circle w3-hover-opacity">
+      <h3 style="text-align: center;">Анатолий Редут</h3>
     </div>
-    </div>
+  <div class="w3-half">
+    <table style="width:50%; height: 80%; font-size: 20px;">
+      <tr>
+        <td>Имя:</td>
+        <td>Анатолий</td>
+      </tr>
+      <tr>
+        <td>Фамилия:</td>
+        <td>Редут</td>
+      </tr>
+      <tr>
+        <td>Телефон:</td>
+        <td>+7 996 378 5720</td>
+      </tr>
+      <tr>
+        <td>Название компании:</td>
+        <td>Команда №-1</td>
+      </tr>
+    </table>
   </div>
 </div>
+</div>
+
+
+  <div class="w3-row">
+    <div class="w3-half">
+      <button  onclick="showAndHide1()" style="
+      width: 95%;
+      background-color: rgb(233, 125, 1);
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;">Мои кемпинги</button>
+    </div>
+    <div class="w3-half">
+      <button onclick="showAndHide2()" style="
+      width: 95%;
+      background-color: rgb(233, 125, 1);
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;">Добавить кемпинг</button>
+    </div>
+  </div>
+    <div id="myDIV1">
+      <div class="w3-card w3-white">
+        <div class="w3-container">
+          <h3>Здесь будут ваши кемпинги</h3>
+        </div>
+      </div>
+    </div>
+    <div id="myDIV2" style="display: none;">
+      <div class="w3-card w3-white">
+        <div class="w3-container">
+          <h3>Заполните информацию о кемпинге:</h3>
+          <div class="w3-our-input w3-our-input-submit w3-our-input-div select">
+            <label for="fname">Название кемпинга</label>
+            <input type="text" id="Name" name="Name" style="width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid rgb(233, 125, 1);
+            border-radius: 4px;
+            box-sizing: border-box;">
+              
+            <label for="lname">Описание кемпинга</label>
+            <input type="text" id="Description" name="Description" style="width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid rgb(233, 125, 1);
+            border-radius: 4px;
+            box-sizing: border-box;">
+    
+            <label for="lname">Количество парковочных мест</label>
+            <input type="text" id="ParkingSize" name="ParkingSize" style="width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid rgb(233, 125, 1);
+            border-radius: 4px;
+            box-sizing: border-box;">
+            
+            <label for="lname">Тип парковки</label>
+            <input type="text" id="ParkingType" name="ParkingType" style="width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid rgb(233, 125, 1);
+            border-radius: 4px;
+            box-sizing: border-box;">
+            
+            <label for="lname">Оценка</label>
+            <input type="text" id="Rating" name="Rating" style="width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid rgb(233, 125, 1);
+            border-radius: 4px;
+            box-sizing: border-box;">
+            
+            <label for="lname">Стоимость дня проживания</label>
+            <input type="text" id="PricePerDay" name="PricePerDay" style="width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid rgb(233, 125, 1);
+            border-radius: 4px;
+            box-sizing: border-box;">
+            
+            <input type="submit" value="Сохранить" style="
+            width: 100%;
+            background-color: rgb(233, 125, 1);
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;">
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
 
 <!-- Contact Container -->
 <div class="w3-container w3-padding-200 w3-theme-l5" id="contact">
@@ -140,8 +189,9 @@
     <div class="w3-padding-16"><span class="w3-xlarge w3-border-orange w3-bottombar">Свяжитесь с нами</span></div>
       <p>Если возникнут вопросы или предложения</p>
       <p><i class="fa fa-map-marker w3-text-orange w3-xlarge"></i> Новосибирск, Россия</p>
-      <p><i class="fa fa-phone w3-text-orange w3-xlarge"></i>  +7 толя вставь номер</p>
-      <p><i class="fa fa-envelope-o w3-text-orange w3-xlarge"></i>  толя вставь почту</p>
+      <p><i class="fa fa-phone w3-text-orange w3-xlarge"></i>  +7 996 378 5720</p>
+      <p><i class="fa fa-envelope-o w3-text-orange w3-xlarge"></i>  redut.tolya@gmail.com</p>
+    </div>
   </div>
 </div>
 
@@ -171,6 +221,20 @@ function openNav() {
   } else { 
     x.className = x.className.replace(" w3-show", "");
   }
+}
+function showAndHide1() {
+  var x = document.getElementById("myDIV1");
+  var y = document.getElementById("myDIV2");
+
+  y.style.display = "none";
+  x.style.display = "block";
+}
+function showAndHide2() {
+  var x = document.getElementById("myDIV1");
+  var y = document.getElementById("myDIV2");
+
+  x.style.display = "none";
+  y.style.display = "block";
 }
 </script>
 
