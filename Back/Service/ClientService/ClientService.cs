@@ -29,6 +29,11 @@ namespace Service.ClientService
             db.Client.Remove(client);
         }
 
+        public List<Client> GetAllClients()
+        {
+            return db.Client.ToList();
+        }
+
         public Client GetClient(Guid id)
         {
             return db.Client.ToList().Find(x => x.ID == id);

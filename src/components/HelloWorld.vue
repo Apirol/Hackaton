@@ -110,17 +110,32 @@
   </div>
 </template>
 
+//
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+// import { Component, Vue } from 'vue-property-decorator';
+// import CampingService from "@/Services/CampingService";
+// import Camping from "@/Types/Camping"
 
-@Options({
-  props: {
-    msg: String
-  }
-})
-export default class HelloWorld extends Vue {
-  msg!: string;
-}
+// const campingService = new CampingService;
+
+// @Component({
+//     name: 'SideMenu',
+//     components: { }
+// })
+
+// export default class Add extends Vue {
+//     result: CampingService = {
+//        whoCreated: "",
+//        a:0,
+//        b:0
+//     }
+
+//      addResult(){
+//          resultService.addResult(this.result)
+//          console.log("Adding result...");
+//     }
+// }
+//
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

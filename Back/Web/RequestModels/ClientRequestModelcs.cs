@@ -10,6 +10,5 @@ namespace Web.RequestModels
         public string LastName { get; set; }
         public string Telephone { get; set; }
         public string CompanyName { get; set; }
-        public DateTime RegistrationDate { get; set; }
     }
 }
