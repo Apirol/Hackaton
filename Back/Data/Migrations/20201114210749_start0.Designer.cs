@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Data.Migrations
 {
     [DbContext(typeof(DB.DB))]
-    [Migration("20201113173914_init")]
-    partial class init
+    [Migration("20201114210749_start0")]
+    partial class start0
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,20 +27,20 @@ namespace Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("ClientID")
-                        .HasColumnType("text");
+                    b.Property<DateTime>("CreateOn")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<string>("LocRegion")
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<string>("ParkingSize")
+                    b.Property<string>("Owner")
                         .HasColumnType("text");
+
+                    b.Property<int>("ParkingSize")
+                        .HasColumnType("integer");
 
                     b.Property<string>("ParkingType")
                         .HasColumnType("text");
@@ -54,19 +54,26 @@ namespace Data.Migrations
                     b.Property<string>("URL")
                         .HasColumnType("text");
 
+                    b.Property<Guid?>("facilitiesId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("locationId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientID");
+                    b.HasIndex("facilitiesId");
 
-                    b.HasIndex("LocRegion");
+                    b.HasIndex("locationId");
 
                     b.ToTable("Camping");
                 });
 
             modelBuilder.Entity("Data.Models.Client", b =>
                 {
-                    b.Property<string>("ID")
-                        .HasColumnType("text");
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
 
                     b.Property<string>("CompanyName")
                         .HasColumnType("text");
@@ -77,6 +84,9 @@ namespace Data.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("text");
 
+                    b.Property<DateTime>("RegistrationDate")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("Telephone")
                         .HasColumnType("text");
 
@@ -85,10 +95,31 @@ namespace Data.Migrations
                     b.ToTable("Client");
                 });
 
+            modelBuilder.Entity("Data.Models.Facilities", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<bool>("food")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("sanitary")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("shops")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Facilities");
+                });
+
             modelBuilder.Entity("Data.Models.Location", b =>
                 {
-                    b.Property<string>("Region")
-                        .HasColumnType("text");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
 
                     b.Property<string>("City")
                         .HasColumnType("text");
@@ -96,23 +127,15 @@ namespace Data.Migrations
                     b.Property<string>("House")
                         .HasColumnType("text");
 
+                    b.Property<string>("Region")
+                        .HasColumnType("text");
+
                     b.Property<string>("Street")
                         .HasColumnType("text");
 
-                    b.HasKey("Region");
-
-                    b.ToTable("Location");
-                });
-
-            modelBuilder.Entity("Data.Models.User", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Location");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -311,13 +334,13 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Models.Camping", b =>
                 {
-                    b.HasOne("Data.Models.Client", null)
-                        .WithMany("Campings")
-                        .HasForeignKey("ClientID");
-
-                    b.HasOne("Data.Models.Location", "Loc")
+                    b.HasOne("Data.Models.Facilities", "facilities")
                         .WithMany()
-                        .HasForeignKey("LocRegion");
+                        .HasForeignKey("facilitiesId");
+
+                    b.HasOne("Data.Models.Location", "location")
+                        .WithMany()
+                        .HasForeignKey("locationId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

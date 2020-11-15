@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Data.Migrations
 {
-    public partial class init : Migration
+    public partial class start0 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,11 +51,12 @@ namespace Data.Migrations
                 name: "Client",
                 columns: table => new
                 {
-                    ID = table.Column<string>(nullable: false),
+                    ID = table.Column<Guid>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Telephone = table.Column<string>(nullable: true),
-                    CompanyName = table.Column<string>(nullable: true)
+                    CompanyName = table.Column<string>(nullable: true),
+                    RegistrationDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -63,28 +64,32 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Facilities",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    sanitary = table.Column<bool>(nullable: false),
+                    food = table.Column<bool>(nullable: false),
+                    shops = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Facilities", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Location",
                 columns: table => new
                 {
-                    Region = table.Column<string>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false),
+                    Region = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
                     Street = table.Column<string>(nullable: true),
                     House = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Location", x => x.Region);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "User",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_Location", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -198,30 +203,32 @@ namespace Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
+                    Owner = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    ParkingSize = table.Column<string>(nullable: true),
                     ParkingType = table.Column<string>(nullable: true),
+                    ParkingSize = table.Column<int>(nullable: false),
                     Rating = table.Column<float>(nullable: false),
                     PricePerDay = table.Column<float>(nullable: false),
-                    LocRegion = table.Column<string>(nullable: true),
                     URL = table.Column<string>(nullable: true),
-                    ClientID = table.Column<string>(nullable: true)
+                    CreateOn = table.Column<DateTime>(nullable: false),
+                    facilitiesId = table.Column<Guid>(nullable: true),
+                    locationId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Camping", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Camping_Client_ClientID",
-                        column: x => x.ClientID,
-                        principalTable: "Client",
-                        principalColumn: "ID",
+                        name: "FK_Camping_Facilities_facilitiesId",
+                        column: x => x.facilitiesId,
+                        principalTable: "Facilities",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Camping_Location_LocRegion",
-                        column: x => x.LocRegion,
+                        name: "FK_Camping_Location_locationId",
+                        column: x => x.locationId,
                         principalTable: "Location",
-                        principalColumn: "Region",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -263,14 +270,14 @@ namespace Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Camping_ClientID",
+                name: "IX_Camping_facilitiesId",
                 table: "Camping",
-                column: "ClientID");
+                column: "facilitiesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Camping_LocRegion",
+                name: "IX_Camping_locationId",
                 table: "Camping",
-                column: "LocRegion");
+                column: "locationId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -294,7 +301,7 @@ namespace Data.Migrations
                 name: "Camping");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Client");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -303,7 +310,7 @@ namespace Data.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Client");
+                name: "Facilities");
 
             migrationBuilder.DropTable(
                 name: "Location");

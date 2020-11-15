@@ -31,10 +31,9 @@ namespace Data.Models
    {
       [Key]
       public Guid Id { get; set; }
-
-      public bool sanitary = false;
-      public bool food = false;
-      public bool shops = false;
+      public bool sanitary { get; set; }
+      public bool food { get; set; }
+      public bool shops { get; set; }
    }
 
    public class Location
